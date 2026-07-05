@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-07-05",
+  "description": "외부 공개 트렌드 신호를 모사한 mock 데이터입니다. 실제 API 호출 없이 MVP 점수 계산에 사용합니다.",
+  "signals": [
+    {
+      "keyword": "발레코어",
+      "aliases": ["balletcore", "발레 룩", "리본 플랫"],
+      "search_index": 88,
+      "search_growth": 42,
+      "social_mentions": 13200,
+      "social_growth": 48,
+      "image_posts": 6900,
+      "style_growth": 44,
+      "brand_show_count": 7,
+      "brand_show_mentions": 10,
+      "related_categories": ["women_shoes_flat", "women_skirt_mini", "women_top_cardigan"],
+      "related_tags": ["발레코어", "리본", "메리제인", "플랫슈즈", "샤스커트", "파스텔"],
+      "evidence": [
+        {
+          "title": "검색 상승",
+          "detail": "리본 플랫, 메리제인, 샤스커트 조합 검색이 함께 증가하는 패턴으로 설정했습니다."
+        },
+        {
+          "title": "스타일 이미지 확산",
+          "detail": "짧은 영상과 룩북형 이미지에서 리본·새틴·파스텔 아이템이 반복 노출되는 상황을 모사했습니다."
+        }
+      ]
+    },
+    {
+      "keyword": "고프코어",
+      "aliases": ["gorpcore", "아웃도어 믹스", "테크웨어"],
+      "search_index": 82,
+      "search_growth": 28,
+      "social_mentions": 11800,
+      "social_growth": 35,
+      "image_posts": 5600,
+      "style_growth": 31,
+      "brand_show_count": 6,
+      "brand_show_mentions": 8,
+      "related_categories": ["men_outer_shell", "unisex_bag_cross", "men_pants_cargo"],
+      "related_tags": ["고프코어", "바람막이", "카고팬츠", "트레일", "유틸리티", "테크웨어"],
+      "evidence": [
+        {
+          "title": "시즌 적합성",
+          "detail": "간절기 아우터와 유틸리티 팬츠 수요가 동시에 증가하는 상황을 모사했습니다."
+        },
+        {
+          "title": "상품 연결성",
+          "detail": "바람막이, 카고팬츠, 크로스백으로 구성 가능한 무신사형 스타일 조합이 많습니다."
+        }
+      ]
+    },
+    {
+      "keyword": "데님온데님",
+      "aliases": ["denim on denim", "청청패션", "더블 데님"],
+      "search_index": 74,
+      "search_growth": 24,
+      "social_mentions": 8400,
+      "social_growth": 29,
+      "image_posts": 5100,
+      "style_growth": 38,
+      "brand_show_count": 5,
+      "brand_show_mentions": 7,
+      "related_categories": ["unisex_outer_denim", "unisex_pants_denim", "women_skirt_denim"],
+      "related_tags": ["데님온데님", "청청패션", "데님자켓", "와이드데님", "워싱", "빈티지"],
+      "evidence": [
+        {
+          "title": "룩 조합 용이성",
+          "detail": "데님 자켓과 와이드 데님 팬츠를 중심으로 세트형 노출이 쉬운 키워드입니다."
+        },
+        {
+          "title": "이미지 확산",
+          "detail": "워싱 차이와 실루엣 대비가 이미지 기반 콘텐츠에 적합한 상황을 모사했습니다."
+        }
+      ]
+    },
+    {
+      "keyword": "블록코어",
+      "aliases": ["blokecore", "축구 유니폼", "사커 저지"],
+      "search_index": 69,
+      "search_growth": 33,
+      "social_mentions": 7600,
+      "social_growth": 37,
+      "image_posts": 4300,
+      "style_growth": 34,
+      "brand_show_count": 4,
+      "brand_show_mentions": 6,
+      "related_categories": ["unisex_top_jersey", "men_pants_track", "unisex_cap_ball"],
+      "related_tags": ["블록코어", "사커저지", "트랙팬츠", "스트라이프", "스포티", "레트로"],
+      "evidence": [
+        {
+          "title": "스포츠 믹스",
+          "detail": "축구 저지와 트랙 팬츠 기반의 데일리 스타일 확산을 모사했습니다."
+        },
+        {
+          "title": "태그 확장성",
+          "detail": "스포티, 레트로, 스트라이프 태그와 함께 검색 확장이 가능합니다."
+        }
+      ]
+    },
+    {
+      "keyword": "코켓코어",
+      "aliases": ["coquette", "코켓", "러블리 리본"],
+      "search_index": 77,
+      "search_growth": 39,
+      "social_mentions": 10400,
+      "social_growth": 45,
+      "image_posts": 7200,
+      "style_growth": 47,
+      "brand_show_count": 5,
+      "brand_show_mentions": 8,
+      "related_categories": ["women_onepiece_mini", "women_top_blouse", "women_accessory_hair"],
+      "related_tags": ["코켓코어", "리본", "레이스", "프릴", "미니원피스", "러블리"],
+      "evidence": [
+        {
+          "title": "이미지 문법 명확",
+          "detail": "리본, 레이스, 프릴처럼 시각적 특징이 뚜렷한 요소가 반복되는 상황을 모사했습니다."
+        },
+        {
+          "title": "카테고리 집중",
+          "detail": "블라우스, 미니 원피스, 헤어 액세서리로 추천 카테고리가 명확합니다."
+        }
+      ]
+    }
+  ]
+}
