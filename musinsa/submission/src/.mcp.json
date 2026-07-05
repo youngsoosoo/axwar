@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "trend-signal-validator": {
+      "command": "python",
+      "args": [
+        "main.py",
+        "mcp"
+      ]
+    }
+  }
+}
