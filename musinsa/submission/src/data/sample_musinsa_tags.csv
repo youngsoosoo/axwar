@@ -1,0 +1,21 @@
+tag_id,tag_name,aliases,category_hint,weight
+tag_balletcore,발레코어,balletcore|발레 룩,여성 플랫슈즈,78
+tag_ribbon,리본,ribbon|러블리 리본,액세서리,72
+tag_maryjane,메리제인,mary jane|스트랩슈즈,여성 신발,75
+tag_flat,플랫슈즈,flat shoes|발레 플랫,여성 신발,70
+tag_gorpcore,고프코어,gorpcore|아웃도어 믹스,아우터,80
+tag_windbreaker,바람막이,쉘자켓|윈드브레이커,아우터,74
+tag_cargo,카고팬츠,cargo pants|유틸리티 팬츠,바지,73
+tag_techwear,테크웨어,techwear|유틸리티,공용,67
+tag_denim_on_denim,데님온데님,denim on denim|청청패션,데님,76
+tag_denim_jacket,데님자켓,denim jacket|트러커자켓,아우터,71
+tag_wide_denim,와이드데님,wide denim|와이드진,바지,69
+tag_vintage,빈티지,vintage|레트로 워싱,공용,64
+tag_blokecore,블록코어,blokecore|축구 유니폼,상의,72
+tag_soccer_jersey,사커저지,soccer jersey|축구저지,저지,73
+tag_track_pants,트랙팬츠,track pants|트레이닝팬츠,바지,66
+tag_sporty,스포티,sporty|스포츠믹스,공용,62
+tag_coquette,코켓코어,coquette|코켓,여성,77
+tag_lace,레이스,lace|레이스블라우스,여성 상의,70
+tag_frill,프릴,frill|러플,여성 상의,68
+tag_mini_onepiece,미니원피스,mini dress|미니드레스,원피스,69

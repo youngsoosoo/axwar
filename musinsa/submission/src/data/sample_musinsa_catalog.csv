@@ -1,0 +1,16 @@
+product_id,product_name,category_id,tags,brand,keyword_hint
+P0001,리본 스트랩 메리제인 플랫,women_shoes_flat,발레코어|리본|메리제인|플랫슈즈,MOCK BRAND A,발레코어|메리제인|리본 플랫
+P0002,파스텔 샤 미니스커트,women_skirt_mini,발레코어|샤스커트|파스텔,MOCK BRAND B,발레코어|샤스커트
+P0003,크롭 니트 가디건,women_top_cardigan,발레코어|파스텔|니트,MOCK BRAND C,발레코어|크롭가디건
+P0004,라이트웨이트 쉘 바람막이,men_outer_shell,고프코어|바람막이|트레일,MOCK BRAND D,고프코어|바람막이|쉘자켓
+P0005,유틸리티 포켓 크로스백,unisex_bag_cross,고프코어|유틸리티|테크웨어,MOCK BRAND E,고프코어|크로스백
+P0006,나일론 카고 팬츠,men_pants_cargo,고프코어|카고팬츠|유틸리티,MOCK BRAND F,고프코어|카고팬츠
+P0007,워싱 데님 트러커 자켓,unisex_outer_denim,데님온데님|데님자켓|워싱|빈티지,MOCK BRAND G,데님온데님|데님자켓
+P0008,와이드 워싱 데님 팬츠,unisex_pants_denim,데님온데님|와이드데님|워싱,MOCK BRAND H,데님온데님|와이드데님
+P0009,미디 데님 스커트,women_skirt_denim,데님온데님|워싱|빈티지,MOCK BRAND I,데님온데님|데님스커트
+P0010,스트라이프 사커 저지,unisex_top_jersey,블록코어|사커저지|스트라이프|스포티,MOCK BRAND J,블록코어|사커저지
+P0011,레트로 트랙 팬츠,men_pants_track,블록코어|트랙팬츠|레트로|스포티,MOCK BRAND K,블록코어|트랙팬츠
+P0012,클럽 로고 볼캡,unisex_cap_ball,블록코어|스포티|레트로,MOCK BRAND L,블록코어|볼캡
+P0013,프릴 미니 원피스,women_onepiece_mini,코켓코어|프릴|미니원피스|러블리,MOCK BRAND M,코켓코어|미니원피스
+P0014,레이스 리본 블라우스,women_top_blouse,코켓코어|레이스|리본|프릴,MOCK BRAND N,코켓코어|레이스블라우스
+P0015,새틴 리본 헤어핀,women_accessory_hair,코켓코어|리본|러블리,MOCK BRAND O,코켓코어|헤어핀

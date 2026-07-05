@@ -1,0 +1,16 @@
+category_id,depth1,depth2,depth3,keywords
+women_shoes_flat,여성,신발,플랫슈즈,발레코어|플랫슈즈|메리제인|리본
+women_skirt_mini,여성,스커트,미니스커트,발레코어|샤스커트|미니스커트|파스텔
+women_top_cardigan,여성,상의,가디건,발레코어|크롭가디건|니트|파스텔
+men_outer_shell,남성,아우터,바람막이,고프코어|바람막이|쉘자켓|트레일
+unisex_bag_cross,공용,가방,크로스백,고프코어|크로스백|유틸리티|테크웨어
+men_pants_cargo,남성,바지,카고팬츠,고프코어|카고팬츠|유틸리티|아웃도어
+unisex_outer_denim,공용,아우터,데님자켓,데님온데님|청청패션|데님자켓|워싱
+unisex_pants_denim,공용,바지,데님팬츠,데님온데님|와이드데님|워싱|빈티지
+women_skirt_denim,여성,스커트,데님스커트,데님온데님|데님스커트|미디스커트|워싱
+unisex_top_jersey,공용,상의,저지,블록코어|사커저지|축구유니폼|스트라이프
+men_pants_track,남성,바지,트랙팬츠,블록코어|트랙팬츠|스포티|레트로
+unisex_cap_ball,공용,모자,볼캡,블록코어|볼캡|스포티|레트로
+women_onepiece_mini,여성,원피스,미니원피스,코켓코어|미니원피스|러블리|프릴
+women_top_blouse,여성,상의,블라우스,코켓코어|블라우스|레이스|프릴
+women_accessory_hair,여성,액세서리,헤어액세서리,코켓코어|리본|헤어핀|러블리
