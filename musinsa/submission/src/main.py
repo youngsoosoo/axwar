@@ -21,6 +21,7 @@ DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 
 def build_trend_report(
     keyword: str,
+    domain: str | None = None,
     signals_path: Path = DEFAULT_SIGNALS,
     categories_path: Path = DEFAULT_CATEGORIES,
     tags_path: Path = DEFAULT_TAGS,
@@ -46,6 +47,7 @@ def build_trend_report(
     output_path = write_report(output_dir, keyword, markdown)
     return {
         "keyword": keyword,
+        "domain": domain,
         "output_path": str(output_path),
         "signal": signal,
         "score_result": score_result,
@@ -61,6 +63,11 @@ def parse_cli_args(argv: list[str]) -> argparse.Namespace:
     )
     parser.add_argument("keyword_arg", nargs="?", help="평가할 트렌드 키워드입니다.")
     parser.add_argument("--keyword", dest="keyword_option", help="평가할 트렌드 키워드입니다.")
+    parser.add_argument(
+        "--domain",
+        default=None,
+        help="선택 입력값입니다. MVP에서는 점수 계산에 직접 사용하지 않습니다.",
+    )
     parser.add_argument("--signals", default=str(DEFAULT_SIGNALS), help="mock 트렌드 신호 JSON 경로입니다.")
     parser.add_argument("--categories", default=str(DEFAULT_CATEGORIES), help="무신사 카테고리 CSV 경로입니다.")
     parser.add_argument("--tags", default=str(DEFAULT_TAGS), help="태그 매핑 CSV 경로입니다.")
@@ -88,6 +95,7 @@ def run_cli(argv: list[str]) -> int:
 
     result = build_trend_report(
         keyword=keyword,
+        domain=args.domain,
         signals_path=signals_path,
         categories_path=Path(args.categories),
         tags_path=Path(args.tags),

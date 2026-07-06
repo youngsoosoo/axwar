@@ -77,7 +77,7 @@ def calculate_total_score(component_scores: dict[str, float]) -> float:
 
 def score_band(total_score: float) -> ScoreBand:
     if total_score >= 80:
-        return ScoreBand("강한 실행 후보", "검색·확산·상품 연결성이 모두 높아 즉시 기획 검토가 가능합니다.")
+        return ScoreBand("확장 추천", "검색·확산·상품 연결성이 모두 높아 즉시 기획 검토가 가능합니다.")
     if total_score >= 65:
         return ScoreBand("테스트 권장", "신호가 충분하므로 카테고리와 태그를 보강해 실험할 만합니다.")
     if total_score >= 50:
