@@ -121,6 +121,30 @@
           "detail": "블라우스, 미니 원피스, 헤어 액세서리로 추천 카테고리가 명확합니다."
         }
       ]
+    },
+    {
+      "keyword": "피스타치오 네일",
+      "aliases": ["pistachio nails", "그린 네일", "파스텔 그린 네일"],
+      "search_index": 84,
+      "search_growth": 41,
+      "social_mentions": 9800,
+      "social_growth": 43,
+      "image_posts": 7100,
+      "style_growth": 49,
+      "brand_show_count": 5,
+      "brand_show_mentions": 8,
+      "related_categories": ["beauty_nail_color", "beauty_makeup_eye", "beauty_lip_tint"],
+      "related_tags": ["피스타치오네일", "파스텔그린", "여름네일", "쿨톤메이크업", "그린네일", "글로우립"],
+      "evidence": [
+        {
+          "title": "컬러 트렌드 확장",
+          "detail": "피스타치오 컬러가 네일, 아이섀도우, 립 조합으로 확장되는 뷰티 트렌드 상황을 모사했습니다."
+        },
+        {
+          "title": "이미지·스타일 신호",
+          "detail": "파스텔 그린 계열의 저장형 이미지와 숏폼 콘텐츠 확산을 반영한 mock 신호입니다."
+        }
+      ]
     }
   ]
 }
