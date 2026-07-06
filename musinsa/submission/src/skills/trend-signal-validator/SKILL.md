@@ -11,7 +11,7 @@ description: 무신사 패션 트렌드 키워드의 검색성, 소셜 확산성
 
 1. 사용자가 평가할 한국어 또는 영어 키워드를 확인한다.
 2. 플러그인 루트에서 `python main.py "<키워드>"`를 실행한다.
-3. 생성된 `output/{keyword}_trend_report.md` 리포트를 확인한다.
+3. 생성된 `output/{keyword}_trend_report.md` 리포트를 확인한다. 제출 루트 기준 경로는 `src/output/{keyword}_trend_report.md`이다.
 4. 사용자에게 총점, 핵심 근거, 추천 카테고리, 추천 태그, 다음 액션을 요약한다.
 
 ## 입력 데이터
@@ -24,7 +24,7 @@ description: 무신사 패션 트렌드 키워드의 검색성, 소셜 확산성
 
 ## 점수 해석
 
-- 80점 이상: 바로 기획 검토 가능한 강한 트렌드 신호
+- 80점 이상: 바로 기획 검토 가능한 확장 추천 신호
 - 65점 이상 80점 미만: 카테고리·태그 보강 후 테스트할 만한 신호
 - 50점 이상 65점 미만: 소규모 콘텐츠 또는 검색어 실험에 적합
 - 50점 미만: 근거가 약하므로 추가 데이터 확인 필요
@@ -34,6 +34,7 @@ description: 무신사 패션 트렌드 키워드의 검색성, 소셜 확산성
 ```bash
 python main.py "발레코어"
 python main.py --keyword "고프코어"
+python main.py --keyword "피스타치오 네일" --domain beauty
 python main.py --list-keywords
 ```
 
@@ -44,3 +45,4 @@ python main.py --list-keywords
 - 리포트 내용과 사용자 설명은 한국어로 작성한다.
 - 없는 키워드는 낮은 기본 점수로 처리하되, 사용 가능한 샘플 키워드를 함께 안내한다.
 - 결과 파일 경로와 생성 여부를 반드시 사용자에게 알려준다.
+- `logs/`는 Markdown 리포트 저장 위치가 아니라 제출용 AI 대화 원본 로그 보관 위치로 취급한다.

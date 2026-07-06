@@ -45,7 +45,7 @@
    * 단순히 “이 키워드가 뜬다”는 정보만으로는 부족합니다.
    * 어떤 카테고리와 연결할지, 어떤 태그를 만들지, 어떤 콘텐츠나 기획전으로 풀어낼지까지 제안되어야 합니다.
 
-본 MVP는 이 문제를 해결하기 위해 트렌드 후보를 입력받고, 샘플 외부 신호 데이터와 샘플 상품·카테고리 데이터를 바탕으로 점수화한 뒤, Markdown 리포트 형태로 근거와 실행 액션을 제공합니다.
+본 MVP는 이 문제를 해결하기 위해 트렌드 후보를 입력받고, mock 공개 트렌드 신호 데이터와 샘플 상품·카테고리 데이터를 바탕으로 점수화한 뒤, Markdown 리포트 형태로 근거와 실행 액션을 제공합니다.
 
 ---
 
@@ -77,7 +77,7 @@ https://newsroom.musinsa.com/newsroom-menu/2026-0603
 
 Google Search Central은 Google Trends가 집계·익명화·분류된 Google 및 YouTube 검색 샘플을 제공한다고 설명합니다.
 
-본 MVP에서는 실제 Google Trends API를 직접 연동하지 않고, 검색 관심도와 상승률을 모사한 `sample_external_signals.csv` 데이터를 사용합니다.
+본 MVP에서는 실제 Google Trends API를 직접 연동하지 않고, 검색 관심도와 상승률을 모사한 `src/data/sample_trend_signals.json` 데이터를 기본 입력으로 사용합니다. `src/data/sample_external_signals.csv`는 동일한 외부 공개 신호 개념을 CSV 형태로 검토하기 위한 보조 샘플 데이터입니다.
 
 출처 URL:
 
@@ -185,11 +185,11 @@ MVP에서 제공하는 도움:
 | 기능              | 설명                                                |
 | --------------- | ------------------------------------------------- |
 | 키워드 입력          | 사용자가 검증할 패션·뷰티 트렌드 키워드를 입력                        |
-| 샘플 외부 신호 데이터 로드 | CSV 또는 JSON 파일에서 검색성, 소셜 확산성, 이미지 확산성 등 샘플 데이터 로드 |
+| 샘플 트렌드 신호 데이터 로드 | 기본 JSON 파일에서 검색성, 소셜 확산성, 이미지 확산성 등 mock 공개 신호 데이터 로드 |
 | 트렌드 점수 계산       | 사전 정의한 가중치 기준으로 100점 만점 점수 계산                     |
 | 근거 카드 생성        | 왜 해당 키워드를 봐야 하는지 Markdown 근거 카드 생성                |
 | 무신사 카테고리/태그 매핑  | sample CSV 또는 사용자가 제공한 카테고리·상품·태그 데이터 기준으로 매핑     |
-| Markdown 리포트 출력 | 최종 결과를 `logs/` 또는 지정 경로에 `.md` 파일로 저장             |
+| Markdown 리포트 출력 | 최종 결과를 `src/output/{keyword}_trend_report.md` 형식으로 저장 |
 
 ### 5.2 MVP에서 사용하지 않는 것
 
@@ -208,13 +208,13 @@ MVP에서는 내부 데이터와 외부 API를 다음 방식으로 대체합니�
 
 | 실제 서비스에서 필요할 수 있는 데이터       | MVP 대체 방식                                             |
 | --------------------------- | ----------------------------------------------------- |
-| 외부 검색 트렌드                   | `sample_external_signals.csv`                         |
-| YouTube/TikTok/Pinterest 신호 | `sample_external_signals.csv`                         |
-| 브랜드 쇼·룩북 등장 여부              | `sample_external_signals.csv`의 `brand_show_signal` 컬럼 |
-| 무신사 상품 데이터                  | `sample_musinsa_catalog.csv`                          |
-| 무신사 카테고리 데이터                | `sample_musinsa_categories.csv`                       |
-| 무신사 태그 데이터                  | `sample_musinsa_tags.csv`                             |
-| 담당자 피드백                     | `logs/feedback_sample.json` 또는 수동 입력                  |
+| 외부 검색 트렌드                   | `src/data/sample_trend_signals.json`              |
+| YouTube/TikTok/Pinterest 신호 | `src/data/sample_trend_signals.json`              |
+| 브랜드 쇼·룩북 등장 여부              | `src/data/sample_trend_signals.json`의 브랜드 쇼 신호 필드 |
+| CSV 검토용 외부 신호               | `src/data/sample_external_signals.csv`            |
+| 무신사 상품 데이터                  | `src/data/sample_musinsa_catalog.csv`             |
+| 무신사 카테고리 데이터                | `src/data/sample_musinsa_categories.csv`          |
+| 무신사 태그 데이터                  | `src/data/sample_musinsa_tags.csv`                |
 
 ---
 
@@ -237,18 +237,27 @@ MVP에서는 내부 데이터와 외부 API를 다음 방식으로 대체합니�
 러닝 코어
 ```
 
-### 6.2 샘플 외부 신호 데이터 로드
+### 6.2 샘플 트렌드 신호 데이터 로드
 
 MVP는 외부 API를 호출하지 않고 샘플 데이터를 로드합니다.
 
-예시 CSV:
+MVP의 기본 실행 데이터는 `src/data/sample_trend_signals.json`입니다.
+`src/data/sample_external_signals.csv`는 동일한 외부 공개 신호 개념을 CSV 형태로 검토하기 위한 보조 샘플 데이터입니다.
 
-```csv
-keyword,search_interest,search_growth,social_mentions,social_growth,visual_mentions,visual_growth,brand_show_signal
-피스타치오 네일,72,18,64,15,88,24,52
-볼캡,86,12,78,10,75,8,67
-리본 코어,69,21,82,28,91,31,58
-고프코어 샌들,74,16,70,14,77,19,61
+예시 JSON:
+
+```json
+{
+  "keyword": "피스타치오 네일",
+  "search_index": 84,
+  "search_growth": 41,
+  "social_mentions": 9800,
+  "social_growth": 43,
+  "image_posts": 7100,
+  "style_growth": 49,
+  "brand_show_count": 5,
+  "brand_show_mentions": 8
+}
 ```
 
 ### 6.3 트렌드 점수 계산
@@ -257,11 +266,11 @@ MVP는 아래 가중치를 기준으로 100점 만점의 트렌드 점수를 계
 
 | 평가 항목           | 설명                             | 가중치 |
 | --------------- | ------------------------------ | --: |
-| 검색성             | 검색 관심도와 검색 상승률                 |  20 |
+| 검색성             | 검색 관심도와 검색 상승률                 |  25 |
 | 소셜 확산성          | 숏폼·영상·소셜 언급량과 상승률              |  20 |
 | 이미지·스타일 확산성     | Pinterest, 룩북, 이미지 기반 반복 등장 신호 |  20 |
 | 브랜드 쇼 등장 가능성    | 브랜드 쇼, 룩북, 컬렉션 등장 가능성          |  15 |
-| 무신사 카테고리/태그 연결성 | 샘플 카테고리·태그·상품 데이터와의 연결 가능성     |  25 |
+| 무신사 카테고리/태그 연결성 | 샘플 카테고리·태그·상품 데이터와의 연결 가능성     |  20 |
 | 총점              |                                | 100 |
 
 > 위 가중치는 MVP 검증용 초기값입니다.
@@ -398,14 +407,14 @@ Markdown 리포트 예시:
 
 ```mermaid
 flowchart TD
-    A[사용자 키워드 입력] --> B[샘플 외부 신호 데이터 로드]
-    B --> C[샘플 카테고리/태그 데이터 로드]
+    A[사용자 키워드 입력] --> B[sample_trend_signals.json 로드]
+    B --> C[샘플 카테고리/태그/상품 데이터 로드]
     C --> D[키워드 매칭 및 신호 정규화]
     D --> E[트렌드 점수 계산]
     E --> F[카테고리/태그 매핑]
     F --> G[근거 카드 생성]
     G --> H[Markdown 리포트 출력]
-    H --> I[logs 디렉토리에 결과 저장]
+    H --> I[src/output 디렉토리에 결과 저장]
 ```
 
 ### 8.1 단계별 설명
@@ -414,15 +423,16 @@ flowchart TD
 
    * 예: `피스타치오 네일`
 
-2. **샘플 외부 신호 데이터 로드**
+2. **샘플 트렌드 신호 데이터 로드**
 
-   * `sample_external_signals.csv`에서 키워드에 해당하는 신호를 찾습니다.
+   * `src/data/sample_trend_signals.json`에서 키워드에 해당하는 신호를 찾습니다.
+   * `src/data/sample_external_signals.csv`는 CSV 검토용 보조 샘플입니다.
 
 3. **샘플 카테고리/태그 데이터 로드**
 
-   * `sample_musinsa_categories.csv`
-   * `sample_musinsa_tags.csv`
-   * `sample_musinsa_catalog.csv`
+   * `src/data/sample_musinsa_categories.csv`
+   * `src/data/sample_musinsa_tags.csv`
+   * `src/data/sample_musinsa_catalog.csv`
 
 4. **키워드 매칭**
 
@@ -438,7 +448,7 @@ flowchart TD
 
 7. **Markdown 리포트 저장**
 
-   * 결과를 `logs/trend-report-<keyword>.md` 형식으로 저장합니다.
+   * 결과를 `src/output/{keyword}_trend_report.md` 형식으로 저장합니다.
 
 ---
 
@@ -577,21 +587,23 @@ Markdown 리포트 출력 이후 단계에서는 웹 대시보드로 확장할 �
 예상 CLI 실행 방식:
 
 ```bash
+python src/main.py --list-keywords
 python src/main.py --keyword "피스타치오 네일" --domain beauty
+python src/main.py "발레코어"
 ```
 
 예상 출력 파일:
 
 ```text
-logs/trend-report-피스타치오_네일.md
+src/output/피스타치오_네일_trend_report.md
 ```
 
 예상 출력 메시지:
 
 ```text
-Trend report generated: logs/trend-report-피스타치오_네일.md
-Final score: 82/100
-Decision: 확장 추천
+키워드: 피스타치오 네일
+총점: 82/100점 (확장 추천)
+리포트 저장 경로: .../src/output/피스타치오_네일_trend_report.md
 ```
 
 ---
@@ -614,11 +626,12 @@ submission.zip
 │   ├── mapper.py
 │   ├── report_generator.py
 │   ├── data/
+│   │   ├── sample_trend_signals.json
 │   │   ├── sample_external_signals.csv
 │   │   ├── sample_musinsa_categories.csv
 │   │   ├── sample_musinsa_tags.csv
 │   │   └── sample_musinsa_catalog.csv
-│   └── requirements.txt
+│   └── output/
 ├── README.md
 └── logs/
 ```
@@ -634,12 +647,16 @@ submission.zip
 | `src/scorer.py`                              | 트렌드 점수 계산 로직             |
 | `src/mapper.py`                              | 카테고리·태그 매핑 로직            |
 | `src/report_generator.py`                    | Markdown 리포트 생성 로직       |
-| `src/data/sample_external_signals.csv`       | 외부 공개 트렌드 신호를 모사한 샘플 데이터 |
+| `src/data/sample_trend_signals.json`         | CLI가 기본으로 읽는 mock 공개 트렌드 신호 데이터 |
+| `src/data/sample_external_signals.csv`       | 외부 공개 트렌드 신호를 CSV 형태로 검토하기 위한 샘플 데이터 |
 | `src/data/sample_musinsa_categories.csv`     | 무신사 카테고리 구조를 단순화한 샘플 데이터 |
 | `src/data/sample_musinsa_tags.csv`           | 태그 매핑용 샘플 데이터            |
 | `src/data/sample_musinsa_catalog.csv`        | 상품 연결성 계산용 샘플 상품 데이터     |
+| `src/output/`                                | 플러그인이 생성한 Markdown 트렌드 리포트 저장 폴더 |
 | `README.md`                                  | 프로젝트 설명 문서               |
-| `logs/`                                      | 실행 결과 Markdown 리포트 저장 경로 |
+| `logs/`                                      | AX 인재전쟁 예선 제출을 위해 AI와 주고받은 원본 대화 로그를 보관하는 폴더 |
+
+이 MVP는 Python 표준 라이브러리만 사용하므로 별도의 의존성 설치 과정이 필요하지 않습니다.
 
 ---
 
@@ -662,7 +679,7 @@ submission.zip
 이 MVP는 실제 내부 데이터 없이도 다음 과정을 재현할 수 있도록 설계되었습니다.
 
 1. 트렌드 키워드 입력
-2. 샘플 외부 신호 데이터 로드
+2. 샘플 트렌드 신호 데이터 로드
 3. 트렌드 점수 계산
 4. 근거 카드 생성
 5. 무신사 카테고리·태그 매핑

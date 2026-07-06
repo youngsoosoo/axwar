@@ -1,6 +1,6 @@
 # 트렌드 신호 검증기
 
-무신사 트렌드 키워드의 실행 가능성을 100점 만점으로 평가하고 Markdown 리포트를 생성하는 Codex 플러그인 MVP입니다. 실제 외부 API나 API 키를 사용하지 않고 `data/sample_trend_signals.json`의 mock 공개 신호 데이터를 읽어 동작합니다.
+무신사 트렌드 키워드의 실행 가능성을 100점 만점으로 평가하고 Markdown 리포트를 생성하는 Codex 플러그인 MVP입니다. 실제 외부 API나 API 키를 사용하지 않고 `data/sample_trend_signals.json`의 mock 공개 신호 데이터를 읽어 동작합니다. 제출 루트 기준 리포트 저장 경로는 `src/output/{keyword}_trend_report.md`입니다.
 
 ## 주요 기능
 
@@ -24,6 +24,7 @@ data/sample_external_signals.csv
 data/sample_musinsa_categories.csv
 data/sample_musinsa_tags.csv
 data/sample_musinsa_catalog.csv
+output/
 ```
 
 ## 실행 방법
@@ -40,6 +41,12 @@ python main.py "발레코어"
 python main.py --keyword "고프코어"
 ```
 
+도메인은 선택 입력값으로 받을 수 있으며, MVP 점수 계산에는 직접 사용하지 않습니다.
+
+```bash
+python main.py --keyword "피스타치오 네일" --domain beauty
+```
+
 샘플 데이터에 포함된 키워드는 다음 명령으로 확인합니다.
 
 ```bash
@@ -51,7 +58,7 @@ python main.py --list-keywords
 ```bash
 $ python main.py "발레코어"
 키워드: 발레코어
-총점: 86.0/100점 (강한 실행 후보)
+총점: 86.0/100점 (확장 추천)
 리포트 저장 경로: .../output/발레코어_trend_report.md
 ```
 
